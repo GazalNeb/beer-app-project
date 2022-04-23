@@ -1,5 +1,7 @@
+@use "../../assets/sass/variables" as *;
+
 .filters-list {
-  background-color: black;
+  background-color: $color-black;
   position: fixed;
   top: 0;
   left: 0;
@@ -15,21 +17,21 @@
     align-items: center;
 
     &__item {
-      color: white;
+      color: $color-white;
     }
   }
 }
 
 @media screen and (min-width: 992px) {
   .filters-list {
-    background-color: rgba(black, 0.8);
+    background-color: rgba($color-black, 0.8);
     display: flex;
     justify-content: center;
     align-items: center;
 
     &__content {
       position: relative;
-      background-color: black;
+      background-color: $color-black;
       width: 30%;
       height: 80%;
       border-radius: 15px;
