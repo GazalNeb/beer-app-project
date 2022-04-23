@@ -1,11 +1,10 @@
 import React from 'react';
 import "./CardList.scss";
 import Card from "../Card/Card.jsx";
-import beers from "../../data/beers";
 
-const CardList = () => {
+const CardList = ({beersArr}) => {
 
-  const CardJSX = beers.map(beer => {
+  const CardJSX = beersArr.map(beer => {
     return <Card key={beer.id} image={beer.image_url} description={beer.description} />
   })
 

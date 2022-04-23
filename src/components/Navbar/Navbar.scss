@@ -5,10 +5,13 @@
   height: 5rem;
   padding: 1rem;
 
-  &__item {
-    &--image {
+  &__input-box {
+    display: flex;
+    gap: 1rem;
+  }
+
+  &__image {
       height: 7rem;
       width: 10rem;
-    }
   }
 }
