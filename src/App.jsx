@@ -19,7 +19,9 @@ const App = () => {
       <>
         <NavBar searchTerm={searchTerm} handleInput={handleInput} />
         <Routes>
-          <Route path="/filter/abv" element={<FilterBeerTile beersArr={beers} />} />
+          <Route path="/filter/abv" element={<FilterBeerTile beersArr={beers} filter={"abv"}/>} />
+          <Route path="/filter/year" element={<FilterBeerTile beersArr={beers} filter={"2010"}/>} />
+          <Route path="/filter/ph" element={<FilterBeerTile beersArr={beers} filter={"ph"}/>} />
           <Route path="/" element={<SearchBeerTile beersArr={beers} searchTerm={searchTerm} />} />
         </Routes>
       </>
