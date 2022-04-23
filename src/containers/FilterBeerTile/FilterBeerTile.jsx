@@ -1,10 +1,10 @@
 import React from "react";
 import CardList from "../../components/CardList/CardList";
 
-const FilterBeerTile = ({beersArr, filter}) => {
+const FilterBeerTile = ({beersArr}) => {
   
   const filteredBeers = beersArr.filter(beer => {
-    return (beer.filter > 6);
+    return (beer.abv > 6);
   });
 
   return (
