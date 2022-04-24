@@ -13,7 +13,7 @@ const NavBar = ({searchTerm, handleInput}) => {
 
   return (
     <nav className="nav">
-      {showFilters && <FiltersList />}
+      {showFilters && <FiltersList toggleFilters={toggleFilters}/>}
       <SearchBox label={"Search"} searchTerm={searchTerm} handleInput={handleInput} />
       <img className='nav__image' src={brewdogLogo} />
       <h2 className='nav__filters' onClick={toggleFilters}>Filters</h2>
