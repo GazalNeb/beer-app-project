@@ -5,7 +5,7 @@ import Card from "../Card/Card.jsx";
 const CardList = ({beersArr}) => {
 
   const CardJSX = beersArr.map(beer => {
-    return <Card key={beer.id} image={beer.image_url} description={beer.description} />
+    return <Card key={beer.id} image={beer.image_url} name={beer.name} description={beer.description} />
   })
 
   return (
