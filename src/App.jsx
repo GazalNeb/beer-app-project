@@ -11,7 +11,7 @@ const App = () => {
   const [beersArr, setBeersArr] = useState([]);
   const [Filters, setFilters] = useState({abv6:false, year2010:false, ph4: false});
 
-  const handleInput = (event) => {
+  const handleSearchInput = (event) => {
     const lowerCaseInput = event.target.value.toLowerCase();
     setSearchTerm(lowerCaseInput);
   };
@@ -23,6 +23,8 @@ const App = () => {
       setFilters({abv6:true, year2010:false, ph4: false});
     } else if (event.target.defaultValue == "year2010") {
       setFilters({abv6:false, year2010:true, ph4: false});
+    } else if (event.target.defaultValue == "ph4") {
+      setFilters({abv6:false, year2010:false, ph4: true});
     } else if (event.target.defaultValue == "none") {
       setFilters({abv6:false, year2010:false, ph4: false});
     }
@@ -33,7 +35,10 @@ const App = () => {
   };
 
   const areObjectsEqual = (object1, object2) => {
-   return (object1.abv6 == object2.abv6 && object2.year2010 == object2.year2010 && object1.ph4 == object2.ph4);
+    if (object1.abv6 === object2.abv6 && object1.year2010 === object2.year2010 && object1.ph4 === object2.ph4) {
+      return true;
+    }
+    return false;
   }
 
   useEffect (() => {
@@ -41,7 +46,7 @@ const App = () => {
     console.log(Filters, "in");
    let url;
    if (areObjectsEqual(Filters, {abv6:false, year2010:false, ph4: false})) {
-     url = "https://api.punkapi.com/v2/beers?page=2&per_page=80";
+     url = "https://api.punkapi.com/v2/beers?per_page=80";
    }
 
    else if (areObjectsEqual(Filters, {abv6:true, year2010:false, ph4: false})) {
@@ -51,13 +56,26 @@ const App = () => {
    else if (areObjectsEqual(Filters, {abv6:false, year2010:true, ph4: false})) {
     url = "https://api.punkapi.com/v2/beers?brewed_before=01-2010"
    }
+
+   else if (areObjectsEqual(Filters, {abv6:false, year2010:false, ph4: true})) {
+    url = "https://api.punkapi.com/v2/beers?per_page=80";
+   }
    console.log(url);
    console.log(Filters, "out");
   fetch(url)
         .then(response => response.json())
         .then(beerObjects => {
             console.log( beerObjects );
-            setBeersArr( beerObjects );
+            if (areObjectsEqual(Filters, {abv6:false, year2010:false, ph4: true})) {
+              const filteredByPh4BeersArr = beerObjects.filter(beerObject => {
+                return (beerObject.ph < 4);
+              })
+              console.log(filteredByPh4BeersArr)
+              setBeersArr (filteredByPh4BeersArr);
+            }
+            else {
+              setBeersArr( beerObjects );
+            }
         })
         .catch(console.log("API request failed"))
 
@@ -69,7 +87,7 @@ const App = () => {
 
   return (
       <>
-       <NavBar searchTerm={searchTerm} handleInput={handleInput} handleFilterInput={handleFilterInput} />
+       <NavBar searchTerm={searchTerm} handleSearchInput={handleSearchInput} handleFilterInput={handleFilterInput} />
        <SearchBeerTile beersArr={beersArr} searchTerm={searchTerm} />
       </>
   );
