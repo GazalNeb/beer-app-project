@@ -4,7 +4,6 @@ import "./App.scss";
 import NavBar from "./components/Navbar/NavBar";
 import beers from "./data/beers";
 import SearchBeerTile from "./containers/SearchBeerTile/SearchBeerTile";
-import FilterBeerTile from "./containers/FilterBeerTile/FilterBeerTile";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -65,13 +64,13 @@ const App = () => {
   fetch(url)
         .then(response => response.json())
         .then(beerObjects => {
-            console.log( beerObjects );
+            console.log( beerObjects, "beerObjects" );
             if (areObjectsEqual(Filters, {abv6:false, year2010:false, ph4: true})) {
               const filteredByPh4BeersArr = beerObjects.filter(beerObject => {
                 return (beerObject.ph < 4);
               })
-              console.log(filteredByPh4BeersArr)
-              setBeersArr (filteredByPh4BeersArr);
+              console.log(filteredByPh4BeersArr, "filteredByPh4");
+              setBeersArr(filteredByPh4BeersArr);
             }
             else {
               setBeersArr( beerObjects );
@@ -84,12 +83,14 @@ const App = () => {
   console.log("after fetch");
 
 
-
   return (
-      <>
-       <NavBar searchTerm={searchTerm} handleSearchInput={handleSearchInput} handleFilterInput={handleFilterInput} />
-       <SearchBeerTile beersArr={beersArr} searchTerm={searchTerm} />
-      </>
+      <Router>
+        <NavBar searchTerm={searchTerm} handleSearchInput={handleSearchInput} handleFilterInput={handleFilterInput} />
+       <Routes>
+        <Route exact path="/" element={<SearchBeerTile beersArr={beersArr} searchTerm={searchTerm} />} />
+        <Route exact path="/beers/:beerId" element={<beerInfo beersArr={beersArr}/>} />
+       </Routes>
+      </Router>
   );
 };
 
