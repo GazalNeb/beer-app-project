@@ -1,10 +1,8 @@
 import React, { useState, useEffect } from "react";
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.scss";
 import NavBar from "./components/Navbar/NavBar";
 import beers from "./data/beers";
 import SearchBeerTile from "./containers/SearchBeerTile/SearchBeerTile";
-import FilterBeerTile from "./containers/FilterBeerTile/FilterBeerTile";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -65,12 +63,12 @@ const App = () => {
   fetch(url)
         .then(response => response.json())
         .then(beerObjects => {
-            console.log( beerObjects );
+            console.log( beerObjects, "beerObjects" );
             if (areObjectsEqual(Filters, {abv6:false, year2010:false, ph4: true})) {
               const filteredByPh4BeersArr = beerObjects.filter(beerObject => {
                 return (beerObject.ph < 4);
               })
-              console.log(filteredByPh4BeersArr)
+              console.log(filteredByPh4BeersArr, "filteredByPh4")
               setBeersArr (filteredByPh4BeersArr);
             }
             else {
