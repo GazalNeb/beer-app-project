@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import "./NavBar.scss";
 import brewdogLogo from "../../assets/images/brewdog-logo.png";
-import SearchBox from "../../components/SearchBox/SearchBox";
-import FiltersList from "../../components/FiltersList/FiltersList";
+import SearchBox from "../SearchBox/SearchBox";
+import FiltersList from "../FiltersList/FiltersList";
 
 const NavBar = ({searchTerm, handleSearchInput, handleFilterInput, searchResultCount}) => {
   const [showFilters, setShowFilters] = useState(false);
