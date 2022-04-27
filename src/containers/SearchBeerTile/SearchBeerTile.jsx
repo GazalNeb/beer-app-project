@@ -1,5 +1,6 @@
 import React from "react";
 import CardList from "../../components/CardList/CardList";
+import "./SearchBeerTile.scss";
 
 const SearchBeerTile = ({beersArr, searchTerm}) => {
   
@@ -9,8 +10,10 @@ const SearchBeerTile = ({beersArr, searchTerm}) => {
     return beerNameLower.includes(searchTerm);
   });
 
+
   return (
     <>
+      <p className="search-message">You see {filteredBeers.length} types of beer</p>
       <CardList beersArr={filteredBeers} />
     </>
   );

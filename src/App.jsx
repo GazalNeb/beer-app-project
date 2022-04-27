@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./App.scss";
 import NavBar from "./components/Navbar/NavBar";
-import beers from "./data/beers";
 import SearchBeerTile from "./containers/SearchBeerTile/SearchBeerTile";
 
 const App = () => {

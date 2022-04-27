@@ -1,5 +1,6 @@
+@use "../../assets/sass/variables" as *;
+
 .card {
-  // border: 2px solid black; 
   height: 35rem;
   width: 30rem;
   padding: 1rem;
@@ -10,5 +11,10 @@
   &__image {
     height: 20rem;
     width: 8rem;
+  }
+
+  &__name {
+    font-family: $font-text;
+    font-family: $font-text;
   }
 }

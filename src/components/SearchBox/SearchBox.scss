@@ -1,0 +1,16 @@
+@use "../../assets/sass/variables" as *;
+
+.search-box {
+  display: flex;
+  gap: 1rem;
+
+  &__label {
+    font-family: $font-heading;
+    font-size: 1.2rem;
+  }
+
+  &__input {
+    border-radius: 0.5rem;
+    border: none;
+  }
+}
