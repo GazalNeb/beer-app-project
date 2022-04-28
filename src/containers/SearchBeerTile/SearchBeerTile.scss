@@ -1,6 +1,16 @@
 @use "../../assets/sass/variables" as *;
 
-.search-message {
-  margin: 1rem;
-  font-family: $font-text;
+
+.search-beer-tile {
+
+  &__message {
+    margin: 1rem;
+    font-family: $font-text;
+
+    @media screen and (max-width: 500px) {
+      font-size: 0.8rem;
+      
+    }
+  }
 }
+  

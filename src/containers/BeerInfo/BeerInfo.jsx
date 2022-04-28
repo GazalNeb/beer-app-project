@@ -30,7 +30,7 @@ const BeerInfo = ({beersArr}) => {
         {foodPairingsJSX}
       </ul>
     </div>
-    <div className="album-info__brewers">
+    <div className="beer-info__brewers">
      <h2 className='beer-info__year'>{checkBeer.first_brewed}</h2>
      <h2 className='beer-info__abv'>Abv value: {checkBeer.abv}</h2>
      <h2 className='beer-info__ph'>pH value: {checkBeer.ph}</h2>

@@ -12,10 +12,10 @@ const SearchBeerTile = ({beersArr, searchTerm}) => {
 
 
   return (
-    <>
-      <p className="search-message">You see {filteredBeers.length} types of beer</p>
+    <div className="search-beer-tile">
+      <p className="search-beer-tile__message">You see {filteredBeers.length} types of beer</p>
       <CardList beersArr={filteredBeers} />
-    </>
+    </div>
   );
 };
 

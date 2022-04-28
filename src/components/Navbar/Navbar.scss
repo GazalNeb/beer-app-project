@@ -16,4 +16,26 @@
   &__filters {
     font-family: $font-heading;
   }
+
 }
+
+ @media screen and (max-width: 1200px) {
+    
+  .nav {
+    height: 3rem;
+
+    &__image {
+      height: 5rem;
+      width: 8rem;
+    }
+  }
+
+}
+  
+  @media screen and (max-width: 500px) {
+    .nav {
+      flex-direction: column;
+      height: 10rem;
+    }
+   
+  }
