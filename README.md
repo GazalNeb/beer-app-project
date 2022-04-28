@@ -1,70 +1,21 @@
-# Getting Started with Create React App
+# About 
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is an app for Brewdog brewery built using React with data taken from Punk API at: https://punkapi.com/. It is built as the fourth project of the software development course by _Nology and can be found at: https://gazalneb.github.io/beer-app-project/
 
-## Available Scripts
+# User Interface
 
-In the project directory, you can run:
+Users see 80 beer types taken from punk API on the screen, with the image, name, description, abv, ph, and brewed-year information for each beer type. 
 
-### `npm start`
+The search-box in the navigation bar can be used to dynamically search for any beer by its name. Clicking on the filters button on the top-right section takes the users to a list of filters, where one filter can be selected at a time to filter the beers displayed by specific conditions. 
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The website design is responsive to screens of various widths.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+# Code
 
-### `npm test`
+Problems Encountered:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+My initial plan was to display only the image, name, and part of the description for each beer on the main page, and set up a link for each beer-card to a new page that displays detailed information about it. However, the routing required for that didn't work on my react app. I therefore created another branch with the code for routing and I will try to get that working as soon as possible.
 
-### `npm run build`
+As of now, clicking on one filter checkbox, doesn't un-click other checkboxes. This is something I need to fix. 
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Since each beer-card component is of the same height, it creates a problem with beer-descriptions of different lengths and gives a look of uneven spacing between cards. This will be fixed once I impliment routing to the website, as I can limit the content displayed on each card to the same length, and display the remaining content on the links to each card.
