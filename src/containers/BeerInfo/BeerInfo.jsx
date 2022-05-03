@@ -6,10 +6,11 @@ import {Link} from "react-router-dom";
 const BeerInfo = ({beersArr}) => {
   const {beerId} = useParams();
   console.log(beerId);
+  console.log(beersArr);
 
-  const checkBeer = beersArr.filter(beer => {
+  const checkBeer = beersArr.find(beer => {
     return (beer.id == beerId);
-  })[0];
+  });
   console.log(checkBeer);
 
   const foodPairingsJSX = checkBeer.food_pairing.map(foodItem => {

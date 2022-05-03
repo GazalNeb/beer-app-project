@@ -4,6 +4,7 @@ import "./App.scss";
 import NavBar from "./components/NavBar/NavBar";
 import beers from "./data/beers";
 import SearchBeerTile from "./containers/SearchBeerTile/SearchBeerTile";
+import BeerInfo from "./containers/BeerInfo/BeerInfo";
 
 const App = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -76,20 +77,26 @@ const App = () => {
               setBeersArr( beerObjects );
             }
         })
-        .catch(console.log("API request failed"))
+        .catch(e => {
+          console.log("in catch");
+          console.log(e);
+        })
 
   }, [Filters] );
 
   console.log("after fetch");
-
+  console.log(beersArr, " beersArr");
 
   return (
       <Router>
+        <div className="">
         <NavBar searchTerm={searchTerm} handleSearchInput={handleSearchInput} handleFilterInput={handleFilterInput} />
+        <SearchBeerTile beersArr={beersArr} searchTerm={searchTerm} />
        <Routes>
-        <Route exact path="/" element={<SearchBeerTile beersArr={beersArr} searchTerm={searchTerm} />} />
-        <Route exact path="/beers/:beerId" element={<beerInfo beersArr={beersArr}/>} />
+        <Route exact path="/" element={<SearchBeerTile beersArr={beersArr} searchTerm={searchTerm} />}></Route>
+        <Route exact path="/beers/:beerId" element={<BeerInfo beersArr={beersArr}/>}></Route>
        </Routes>
+       </div>
       </Router>
   );
 };
