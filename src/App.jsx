@@ -91,7 +91,6 @@ const App = () => {
       <Router>
         <div className="">
         <NavBar searchTerm={searchTerm} handleSearchInput={handleSearchInput} handleFilterInput={handleFilterInput} />
-        <SearchBeerTile beersArr={beersArr} searchTerm={searchTerm} />
        <Routes>
         <Route exact path="/" element={<SearchBeerTile beersArr={beersArr} searchTerm={searchTerm} />}></Route>
         <Route exact path="/beers/:beerId" element={<BeerInfo beersArr={beersArr}/>}></Route>
